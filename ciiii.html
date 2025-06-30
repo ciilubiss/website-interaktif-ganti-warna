@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Umur</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #068f98;
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    #hasil {
+      font-size: 20px;
+      margin-top: 20px;
+      color: rgb(92, 222, 243);
+    }
+  </style>
+</head>
+<body>
+  <h2>Kalkulator Umur</h2>
+  <p>Masukkan Tahun Lahir kamu:</p>
+  <input type="number" id="tahunLahir" placeholder="Contoh: 2005" />
+  <br>
+  <button id="hitungUmur">Hitung Umur</button>
+  <p id="hasil"></p>
+
+  <script>
+    const tombol = document.getElementById('hitungUmur');
+    const input = document.getElementById('tahunLahir');
+    const hasil = document.getElementById('hasil');
+
+    tombol.addEventListener('click', function () {
+      const tahun = parseInt(input.value);
+      const tahunIni = new Date().getFullYear();
+
+      if (tahun && tahun <= tahunIni) {
+        const umur = tahunIni - tahun;
+        hasil.textContent = `Umur kamu sekarang adalah ${umur} tahun.`;
+      } else {
+        hasil.textContent = "Tolong masukkan tahun lahir yang valid!";
+      }
+    });
+  </script>
+</body>
+</html>
